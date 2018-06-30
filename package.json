@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "node-sass",
-    "dev": "webpack-dev-server --hot --inline"
+    "dev": "webpack-dev-server  --inline"
   },
   "repository": {
     "type": "git",
