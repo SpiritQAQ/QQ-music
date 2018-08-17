@@ -1,0 +1,12 @@
+.rec-slider{
+  overflow: hidden;
+}
+.rec-slider-item{
+  a{
+    display: block;
+    img{width:100%;}
+  }
+}
+.rec-slider-group{
+  display: flex;
+}
