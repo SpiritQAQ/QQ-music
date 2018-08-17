@@ -1,5 +1,12 @@
 #header { 
+  display: flex;
+  align-items: center;//在交叉轴也就是x轴居中，所以是垂直居中
   height: $header-height;
   background: $the-green;
+  #logo{
+    height:$logo-height;
+    margin-left:10px;
+
+  }
 
 }
