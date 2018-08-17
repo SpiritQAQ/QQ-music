@@ -16,7 +16,6 @@ export default class Slider{
   render(){
     this.$el.innerHTML = `<div class="swiper-wrapper"></div><div class="swiper-pagination"></div>`
     this.$group = this.$el.firstElementChild
-    
     this.$group.innerHTML = this.slides.map(slide =>
       `
       <div class="swiper-slide">
@@ -25,12 +24,12 @@ export default class Slider{
         </a>
       </div>
       `).join('')
-      //不加join会在标签之间多出,
+      //不加join会在标签之间多出逗号
     this.swiperInit()
     
   }
 
-  //Swiper初始化时要获取slide数量，所以要在数据生成DOM初始化
+  //Swiper初始化时要获取slide数量，所以要在动态获取数据时要在生成DOM后再初始化
   swiperInit(){
     var mySwiper = new Swiper ('.swiper-container', {
       // direction: 'vertical',
@@ -43,6 +42,7 @@ export default class Slider{
     })
   }
 
+  //手写轮播放弃
 
   // start(){
   //   setInterval(this.goNext.bind(this),this.interval)
