@@ -12,11 +12,23 @@
   <header id="header">
     <img id ="logo" src="images/logo.png" alt="">
   </header>
+  <nav>
+      <!-- HTML5标准允许你在普通的元素标签里，嵌入类似data-*的属性，来实现一些简单数据的存取 -->
+    <a href="javascript:;" data-role="tab" class="tab-active" data-nav="rec">推荐</a>
+    <a href="javascript:;" data-role="tab" data-nav="toplist">排行榜</a>
+    <a href="javascript:;" data-role="tab" data-nav="search">搜索</a> 
+  </nav>
   <div id="content-wrapper">
-    <div class="rec-wrapper">
+    <div class="rec-wrapper" data-tab="rec">
       <div class="swiper-container">
           
       </div>
+    </div>
+    <div class="toplist-wrapper hide" data-tab="toplist">
+      toplist
+    </div>
+    <div class="search-wrapper hide" data-tab="search">
+      search
     </div>
   </div>
   <!-- <script src="path/to/swiper.min.js"></script> -->

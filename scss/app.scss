@@ -3,6 +3,7 @@
 @import "reset";
 @import "recommend";
 @import "slider";
+@import "nav";
 
 /*导入scss文件,却不需要将它编译为css文件做法:
  *(1)新建一个文件夹,为了将不需要编译的文件和需要编译的文件分开,这点千万注意
@@ -13,4 +14,7 @@
 // p{background-color: blue;}
 body{
   background-color: $body-bgc;
+}
+.hide{
+  display:none;
 }
