@@ -1,5 +1,5 @@
 import {RECOMMEND_URL} from "./constants.js"
-export class Recommand{
+export class Recommend{
   constructor(el){
     this.$el = el
   }
@@ -15,14 +15,14 @@ export class Recommand{
 
 
   render(){
-    
+
   }
 
 }
 
 
 let slider =  new Slider({
-  el : document.querySelector('#rec-slider'),
+  el : document.querySelector('.swiper-container'),
   slides:[ //data
     {link:"1",imgUrl:"1"}
 
