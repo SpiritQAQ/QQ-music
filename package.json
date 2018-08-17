@@ -19,7 +19,9 @@
     "url": "https://github.com/SpiritQAQ/QQ-music/issues"
   },
   "homepage": "https://github.com/SpiritQAQ/QQ-music#readme",
-  "dependencies": {},
+  "dependencies": {
+    "swiper": "^4.3.5"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
