@@ -1,12 +1,13 @@
-.rec-slider{
-  overflow: hidden;
-}
-.rec-slider-item{
+.swiper-slide{
   a{
-    display: block;
+    width:100%;display:block;
     img{width:100%;}
   }
 }
-.rec-slider-group{
-  display: flex;
+.swiper-pagination-bullet {
+  background-color: $body-bgc;
+}
+.swiper-pagination-bullet-active {
+  background-color: #fff;
+
 }
