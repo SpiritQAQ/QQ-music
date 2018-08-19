@@ -19,6 +19,7 @@ export default class Recommend{
     console.log(this.$el)
     this.renderSlider(this.json.data.slider)
     this.renderRadio(this.json.data.radioList)
+    this.renderSonglist(this.json.data.songList)
   }
 
   renderSlider(slides){
@@ -34,13 +35,30 @@ export default class Recommend{
     this.$el.querySelector(".radio-container").innerHTML = radios.map(radio =>
       `
       <div class="radio-item">
-        <img src="${radio.picUrl}"/>
+        <div class="img-box">
+          <img src="${radio.picUrl}"/>
+          <span class="icon icon-play"></span>
+        </div>
         <div class="radio-title">${radio.Ftitle}</div>
-        <span class="icon icon-play"></span>
       </div>
       `
     ).join(" ")
     
+  }
+  renderSonglist(songs){
+    this.$el.querySelector(".songlist-container").innerHTML = songs.map(song =>
+      `
+        <div class="songlist-item">
+          <div class="img-box">
+            <img src="${song.picUrl}" alt=""/>
+            <span class="icon icon-play"></span>
+          </div>
+          <div class="song-title">${song.songListDesc}</div>
+          <div class="song-author">${song.songListAuthor}</div>
+          
+          </div>
+      `
+    ).join(' ')
   }
 
 }

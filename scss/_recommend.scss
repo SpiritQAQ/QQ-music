@@ -5,34 +5,59 @@
 .rec-header{
   padding:10px ;
 }
-.radio-container{
+.radio-container,.songlist-container{
   margin-left:10px;
   margin-top:5px;
 }
-.radio-item{
+footer{
+  margin:20px auto;
+  width:120px;
+
+  img{
+    width:100%;
+
+  }
+}
+.radio-item,.songlist-item{
   width:50%;
   padding-right:8px;
   box-sizing: border-box;
   float:left;
   position: relative;
-  img{
+  margin-bottom:10px;
+  .img-box{
     width:100%;
+    position: relative;
+    img{
+      width:100%;
+    }
+    .icon-play{
+      height: 24px;
+      width: 24px;
+      right:5px;
+      bottom:10px;
+      background-position: 0 0;
+    }
   }
-  .icon-play{
-    height: 24px;
-    width: 24px;
-    right:12px;
-    bottom:5px+48px;
-    background-position: 0 0;
 
-  }
-  .radio-title{
-    height:36px;
+  .radio-title,.song-title{
     font-size:14px; 
     margin-top:-4px;
-    padding:2px 0 10px 2px;
+    padding:5px 0 30px 8px;
     background-color: #fff;
-    
-    
+  }
+  .song-title{
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding:5px 5px 5px 5px;
+  }
+  .song-author{
+    font-size:12px;
+    background-color: #fff;
+    padding:0px 0 5px 5px ;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
