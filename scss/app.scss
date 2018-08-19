@@ -18,3 +18,16 @@ body{
 .hide{
   display:none;
 }
+.clearfix::after{
+  content:"";
+  display: block;
+  clear:both;
+}
+.icon-play{
+  background-image: url(../images/list_sprite.png);
+  background-repeat: no-repeat;
+  background-size: 24px 60px;
+  position: absolute;
+  display: block;
+  z-index:10;
+}

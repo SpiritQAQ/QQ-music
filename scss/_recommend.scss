@@ -1,1 +1,38 @@
 //第一个页面 推荐页面
+
+
+
+.rec-header{
+  padding:10px ;
+}
+.radio-container{
+  margin-left:10px;
+  margin-top:5px;
+}
+.radio-item{
+  width:50%;
+  padding-right:8px;
+  box-sizing: border-box;
+  float:left;
+  position: relative;
+  img{
+    width:100%;
+  }
+  .icon-play{
+    height: 24px;
+    width: 24px;
+    right:12px;
+    bottom:5px+48px;
+    background-position: 0 0;
+
+  }
+  .radio-title{
+    height:36px;
+    font-size:14px; 
+    margin-top:-4px;
+    padding:2px 0 10px 2px;
+    background-color: #fff;
+    
+    
+  }
+}

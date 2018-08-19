@@ -16,7 +16,9 @@ export default class Recommend{
 
 
   render(){
+    console.log(this.$el)
     this.renderSlider(this.json.data.slider)
+    this.renderRadio(this.json.data.radioList)
   }
 
   renderSlider(slides){
@@ -27,6 +29,18 @@ export default class Recommend{
         imgUrl: slide.picUrl.replace('http://', 'https://')
       }))
     })
+  }
+  renderRadio(radios){
+    this.$el.querySelector(".radio-container").innerHTML = radios.map(radio =>
+      `
+      <div class="radio-item">
+        <img src="${radio.picUrl}"/>
+        <div class="radio-title">${radio.Ftitle}</div>
+        <span class="icon icon-play"></span>
+      </div>
+      `
+    ).join(" ")
+    
   }
 
 }
