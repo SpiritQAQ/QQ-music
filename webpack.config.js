@@ -1,4 +1,4 @@
-// var webpack = require('webpack');
+var webpack = require('webpack');
 var path = require('path')
 var HtmlwebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -60,6 +60,7 @@ module.exports = {
         template:"index.html" //指定模板
     })//在dist目录下自动生成index.html，指定其title
     ,
+    new webpack.HotModuleReplacementPlugin()
 //     new ExtractTextPlugin({
 //       filename : "dist/style.css"
 //     })//提取出来的样式放在style.css文件中
