@@ -13,6 +13,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname),
     inline:true, 
+    hot:true ,
     // host: '192.168.0.104', //如果指定的host，这样同局域网的电脑或手机可以访问该网站,host的值在dos下使用ipconfig获取 
     port:8080,
     open:true,
@@ -35,6 +36,10 @@ module.exports = {
       {
         test: /\.(scss|sass)$/, 
         loader: "style-loader!css-loader!sass-loader" 
+      },
+      {
+        test: /\.(png|jpg)$/,
+　　　　loader: 'url-loader?limit=8192'
       },
       {
       //   test: /\.scss$/,
