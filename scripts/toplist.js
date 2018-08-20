@@ -20,7 +20,7 @@ export default class toplist{
     `
       <div class="top-item">
         <div class="img-box">
-          <img data-src="${topLi.picUrl}" class="lazyload"/>
+          <img data-src="${topLi.picUrl.replace("http","https")}" class="lazyload"/>
           <div class="listen-count">
             <i class="icon icon-listen"></i>
             ${this.getNum(topLi.listenCount)}
