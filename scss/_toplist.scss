@@ -16,6 +16,13 @@
       bottom:5px;
       background-position: 0 0;
     }
+    .listen-count{
+      position: absolute;
+      bottom:5px;left:5px;;
+      font-size:10px;
+      line-height:10px;
+      color:#fff
+    }
   }
   .top-item-info{
     background-color: #fff;
@@ -64,11 +71,4 @@
   background-repeat: no-repeat;
   background-size: 24px 60px;
   z-index: 10;
-}
-.listen-count{
-  position: absolute;
-  bottom:5px;left:5px;;
-  font-size:10px;
-  line-height:10px;
-  color:#fff
 }

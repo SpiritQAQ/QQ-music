@@ -38,6 +38,13 @@ footer{
       bottom:10px;
       background-position: 0 0;
     }
+    .listen-count{
+      position: absolute;
+      bottom:13px;left:10px;;
+      font-size:10px;
+      line-height:10px;
+      color:#fff
+    }
   }
 
   .radio-title,.song-title{
@@ -61,3 +68,4 @@ footer{
     overflow: hidden;
   }
 }
+

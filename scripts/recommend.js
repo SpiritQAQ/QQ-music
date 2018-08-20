@@ -52,6 +52,10 @@ export default class Recommend{
         <div class="songlist-item">
           <div class="img-box">
             <img data-src="${song.picUrl}" class="lazyload" />
+            <div class="listen-count">
+            <i class="icon icon-listen"></i>
+              ${this.getNum(song.accessnum)}
+            </div>
             <span class="icon icon-play"></span>
           </div>
           <div class="song-title">${song.songListDesc}</div>
@@ -60,6 +64,10 @@ export default class Recommend{
           </div>
       `
     ).join(' ')
+  }
+  getNum(num){
+    num = num > 9999 ? (Math.floor(num/1000)/10) + '万' : num
+    return num
   }
 
 }
