@@ -1,5 +1,5 @@
 import {TOPLIST_URL} from "./constants.js"
-
+import {lazyload} from "./lazyload.js"
 export default class toplist{
   constructor(el){
     this.$el = el
@@ -20,7 +20,7 @@ export default class toplist{
     `
       <div class="top-item">
         <div class="img-box">
-          <img src="${topLi.picUrl}"/>
+          <img data-src="${topLi.picUrl}" class="lazyload"/>
           <div class="listen-count">
             <i class="icon icon-listen"></i>
             ${this.getNum(topLi.listenCount)}
@@ -38,6 +38,7 @@ export default class toplist{
       </div>
     `
   ).join(" ")
+  lazyload()
   }
   getNum(num){
     num = num > 9999 ? (Math.floor(num/1000)/10) + '万' : num
