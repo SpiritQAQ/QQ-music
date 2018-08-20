@@ -1,7 +1,7 @@
 import {RECOMMEND_URL} from "./constants.js"
 import Slider from "./slider.js"
 import {lazyload} from "./lazyload.js"
-export default class Recommend{
+export default class Recommend{ 
   constructor(el){
     this.$el = el
   }

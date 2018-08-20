@@ -1,0 +1,74 @@
+
+
+.top-item{
+  margin:10px;
+  height:100px;
+  display:flex;
+  position: relative;
+  .img-box{
+    height:100%;
+    img{height:100%;}
+    position: relative;
+    .icon-play{
+      height: 24px;
+      width: 24px;
+      right:5px;
+      bottom:5px;
+      background-position: 0 0;
+    }
+  }
+  .top-item-info{
+    background-color: #fff;
+    height:100%;
+    font-size:14px;
+    padding:0 15px;
+    width:100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    .top-item-title{
+      font-size:16px;
+      margin: 5px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .top-item-songlist{
+      list-style: decimal;
+      li{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        line-height:21px;
+        span{
+          color:rgba(0,0,0,0.5);
+          margin-right:6px;
+          }
+      }
+    }
+  }
+}
+.topic-arrow{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -4px;
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid #b2b2b2;
+  border-bottom: 1px solid #b2b2b2;
+  -webkit-transform: rotate(-45deg);
+}
+.icon-listen{
+  background-image: url(/images/list_sprite.png);
+  background-repeat: no-repeat;
+  background-size: 24px 60px;
+  z-index: 10;
+}
+.listen-count{
+  position: absolute;
+  bottom:5px;left:5px;;
+  font-size:10px;
+  line-height:10px;
+  color:#fff
+}

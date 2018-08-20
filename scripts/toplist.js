@@ -1,4 +1,4 @@
-import {TOPLIST_URL} from "./constans.js"
+import {TOPLIST_URL} from "./constants.js"
 
 export default class toplist{
   constructor(el){
@@ -10,11 +10,37 @@ export default class toplist{
     fetch(TOPLIST_URL)
       .then(res => res.json())
       .then(json => this.json =json)
-      .then(()=>this.render(this.json))
+      .then(()=>this.render(this.json.data.topList))
   }
 
 
-  render(jsonData){
-    console.log(jsonData.data)
+  render(thelist){
+    console.log(thelist)
+    this.$el.innerHTML = thelist.map(topLi=>
+    `
+      <div class="top-item">
+        <div class="img-box">
+          <img src="${topLi.picUrl}"/>
+          <div class="listen-count">
+            <i class="icon icon-listen"></i>
+            ${this.getNum(topLi.listenCount)}
+          </div>
+        </div>
+        <div class="top-item-info">
+          <div class="top-item-title">${topLi.topTitle}</div>
+          <ul class="top-item-songlist">
+            <li><span>1</span>${topLi.songList[0].songname}<span> - ${topLi.songList[0].singername}</span></li>
+            <li><span>2</span>${topLi.songList[1].songname}<span> - ${topLi.songList[1].singername}</span></li>
+            <li><span>3</span>${topLi.songList[2].songname}<span> - ${topLi.songList[2].singername}</span></li>
+          </ul>
+        </div>
+        <i class="topic-arrow"></i>
+      </div>
+    `
+  ).join(" ")
+  }
+  getNum(num){
+    num = num > 9999 ? (Math.floor(num/1000)/10) + '万' : num
+    return num
   }
 }

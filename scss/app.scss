@@ -4,6 +4,7 @@
 @import "recommend";
 @import "slider";
 @import "nav";
+@import "toplist";
 
 /*导入scss文件,却不需要将它编译为css文件做法:
  *(1)新建一个文件夹,为了将不需要编译的文件和需要编译的文件分开,这点千万注意
@@ -14,6 +15,7 @@
 // p{background-color: blue;}
 body{
   background-color: $body-bgc;
+  // font-family :"hiragino sans gb", arial
 }
 .hide{
   display:none;
@@ -30,4 +32,12 @@ body{
   position: absolute;
   display: block;
   z-index:10;
+}
+.icon-listen{
+  display: block;
+  float: left;
+  width: 10px;
+  height: 10px;
+  background-position: 0 -50px;
+  margin-right: 3px;
 }
