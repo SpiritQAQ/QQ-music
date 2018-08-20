@@ -1,5 +1,6 @@
 import {RECOMMEND_URL} from "./constants.js"
 import Slider from "./slider.js"
+import {lazyload} from "./lazyload.js"
 export default class Recommend{
   constructor(el){
     this.$el = el
@@ -16,10 +17,10 @@ export default class Recommend{
 
 
   render(){
-    console.log(this.$el)
     this.renderSlider(this.json.data.slider)
     this.renderRadio(this.json.data.radioList)
     this.renderSonglist(this.json.data.songList)
+    lazyload()
   }
 
   renderSlider(slides){
@@ -36,7 +37,7 @@ export default class Recommend{
       `
       <div class="radio-item">
         <div class="img-box">
-          <img src="${radio.picUrl}"/>
+          <img data-src="${radio.picUrl}" class="lazyload"/>
           <span class="icon icon-play"></span>
         </div>
         <div class="radio-title">${radio.Ftitle}</div>
@@ -50,7 +51,7 @@ export default class Recommend{
       `
         <div class="songlist-item">
           <div class="img-box">
-            <img src="${song.picUrl}" alt=""/>
+            <img data-src="${song.picUrl}" class="lazyload" />
             <span class="icon icon-play"></span>
           </div>
           <div class="song-title">${song.songListDesc}</div>
