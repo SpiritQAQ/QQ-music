@@ -30,8 +30,8 @@ export function lazyload(){
     })},300) //300ms触发一次
 
     window.addEventListener('scroll',onScroll)
-    // window.dispatchEvent(new Event('scroll'))  //触发一次scroll事件
-    onScroll()
+    window.dispatchEvent(new Event('scroll'))  //触发一次scroll事件
+    // onScroll()
   
 
   function inViewport(img){

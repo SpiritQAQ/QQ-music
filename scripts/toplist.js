@@ -15,7 +15,7 @@ export default class toplist{
 
 
   render(thelist){
-    console.log(thelist)
+    // console.log(thelist)
     this.$el.innerHTML = thelist.map(topLi=>
     `
       <div class="top-item">

@@ -18,5 +18,7 @@ document.addEventListener("click",function(event){
       page.classList.remove("hide")
     }  
   })
+
+  window.dispatchEvent(new Event('scroll'))
   
 })
