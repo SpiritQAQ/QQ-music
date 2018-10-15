@@ -22,6 +22,7 @@ export default class search {
       songlist:[],
       nomore:false 
     }
+    this.$songlist.innerHTML = ""
   }
   bindCancelBtn(){
     this.$input.addEventListener("focus",()=>{
@@ -33,7 +34,7 @@ export default class search {
   }
   onKeyup(e){
     let keyword = e.target.value.trim()
-    if(keyword =="") this.reset()
+    // if(keyword =="") this.reset()
     if(e.keyCode !== 13) return 
     this.search(keyword,this.data.page)
   }
@@ -41,12 +42,12 @@ export default class search {
     if(this.data.nomore == 'no results') return window.removeEventListener("scroll",this.onscroll)
     if(pageYOffset + document.documentElement.clientHeight > document.body.scrollHeight - 50){
       //已滚动高度 + 视窗高度 > body的总高度  - 50
-      console.log("触发滚动")
+      // console.log("触发滚动")
       this.search(this.data.keyword,this.data.page+1)
     }
   }
   search(keyword , page){
-    if(this.data.keyword=="") return 
+    if(keyword=="") return 
     console.log(`searching  ${keyword}的第${page}页`)
     let theSearchUrl = `${SEARCH_URL}?keyword=${keyword}&page=${page}`
     fetch(theSearchUrl)
@@ -74,6 +75,7 @@ export default class search {
       </a>
       `
     }).join(" ")
-    this.$songlist.insertAdjacentHTML("beforeend",html)
+    // this.$songlist.insertAdjacentHTML("beforeend",html)
+    this.$songlist.innerHTML += html
   }
 }

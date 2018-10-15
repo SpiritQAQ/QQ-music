@@ -34,6 +34,7 @@
 .search-info{
   background-color: #fff;
   .song-list{
+    overflow: hidden;
     .song-item{
       box-sizing: content-box;
       display: block;
