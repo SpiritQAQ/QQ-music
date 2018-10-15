@@ -39,9 +39,17 @@
         <input type="text" id="search" placeholder="搜索歌曲、歌单、专辑">
         <div class="search-cancel hide">取消</div>
       </div>
-      <div class="search-info">
+      <div class="search-info hide">
         <div class="song-list"></div>
-        <div class="search-loading"></div>
+        <div class="search-loading  hide">
+          <i class="icon-loading"></i>
+          <div class="search-loading-content">正在载入更多...</div>
+        </div>
+        <div class="search-nomore">没有更多结果</div>
+      </div>
+      <div class="search-history hide">
+        <div class="history-list"></div>
+        <div class="clear-history">清除搜索记录</div>
       </div>
     </div>
   </div>
