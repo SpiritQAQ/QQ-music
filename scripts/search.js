@@ -1,3 +1,6 @@
+//遇到的问题有  模版字符串转成html的格式问题   json
+
+
 import {SEARCH_URL} from "./constants.js"
 export default class search {
   constructor(el) {
@@ -67,8 +70,8 @@ export default class search {
     // console.log(`searching  ${keyword}的第${page}页`)
     let theSearchUrl = `${SEARCH_URL}?keyword=${keyword}&page=${page}`
       // console.log(this.data.nomore || this.fetching)
-    console.log("this.fetching"+this.fetching)
-    console.log("this.data.nomore"+this.data.nomore)
+    // console.log("this.fetching"+this.fetching)
+    // console.log("this.data.nomore"+this.data.nomore)
     if(this.data.nomore || this.fetching) return 
     this.loading()    //上次停在这
     fetch(theSearchUrl)
@@ -121,7 +124,7 @@ export default class search {
     this.fetching = true
     this.$el.querySelector(".search-loading").classList.remove("hide")
   }
-  updateHistory(keyword){
+  updateHistory(keyword){    //增加历史记录功能
     let storage = window.localStorage
 
     if(!storage.history){
@@ -143,11 +146,14 @@ export default class search {
       }
     } 
     storage.setItem("history",JSON.stringify(history))
-    console.log(storage)
     
   }
   renderHistory(){
+    if(localStorage.history == undefined) return 
     let history = JSON.parse(localStorage.getItem("history"))
+    if(localStorage.history.length == 2){
+      this.$el.querySelector(".clear-history").classList.add("hide")
+    }
     this.$el.querySelector(".search-history").classList.remove("hide")
     this.$searchInfo.classList.add("hide")
     let html = history.map(ht=>{
@@ -172,6 +178,29 @@ export default class search {
         this.$searchInfo.classList.remove("hide")
       })
     })
+    let historyCloseBtns = this.$el.querySelectorAll(".icon-close")
+    historyCloseBtns.forEach((btn)=>{
+      btn.addEventListener("click",(e)=>{
+        console.log(e.target.parentElement.querySelector(".history-keyword"))
+        this.deleteHistory(e.target.parentElement.querySelector(".history-keyword").innerHTML)
+        if(localStorage.history.length == 2){
+          this.$el.querySelector(".clear-history").classList.add("hide")
+        }
+      })
+    })
+    this.$el.querySelector(".clear-history").addEventListener("click",()=>{
+      localStorage.removeItem("history")
+      console.log("清除搜索历史，现在的历史为" +localStorage.history)
+      this.renderHistory()
+    })
+  }
+  deleteHistory(keyword){
+    let historyList = JSON.parse(localStorage.history)
+    if(!historyList.includes(keyword)) return 
+    let idx = historyList.indexOf(keyword)
+    historyList.splice(idx,1)
+    localStorage.setItem("history",JSON.stringify(historyList))
+    this.renderHistory()
   }
 
 }
