@@ -10,6 +10,7 @@ export default class search {
     this.bindCancelBtn()
     this.$input.addEventListener("keyup",this.onKeyup.bind(this))
     window.addEventListener("scroll",this.onScroll.bind(this))
+    this.fetching = false
     this.data = {
       page:1,
       keyword:'',
@@ -25,6 +26,9 @@ export default class search {
       nomore:false 
     }
     this.$songlist.innerHTML = ""
+    this.$searchInfo.classList.add("hide")
+    this.$el.querySelector(".search-history").classList.add("hide")
+    this.$el.querySelector(".search-nomore").classList.add("hide")
   }
   bindCancelBtn(){
     this.$input.addEventListener("focus",()=>{
@@ -36,6 +40,7 @@ export default class search {
       this.reset()
       console.log(this.$input.value)
       this.$input.value = ""
+ 
     }
 
     )
@@ -53,28 +58,48 @@ export default class search {
     if(pageYOffset + document.documentElement.clientHeight > document.body.scrollHeight - 50){
       //已滚动高度 + 视窗高度 > body的总高度  - 50
       // console.log("触发滚动")
+      
       this.search(this.data.keyword,this.data.page+1)
     }
   }
   search(keyword , page){
     if(keyword=="") return 
-    console.log(`searching  ${keyword}的第${page}页`)
+    // console.log(`searching  ${keyword}的第${page}页`)
     let theSearchUrl = `${SEARCH_URL}?keyword=${keyword}&page=${page}`
+      // console.log(this.data.nomore || this.fetching)
+    console.log("this.fetching"+this.fetching)
+    console.log("this.data.nomore"+this.data.nomore)
+    if(this.data.nomore || this.fetching) return 
+    this.loading()    //上次停在这
     fetch(theSearchUrl)
     .then(res => res.json())
     .then(json => {
-      // console.log(json)
+      console.log(json)
       this.data.page = json.data.song.curpage
       this.data.keyword = json.data.keyword
       this.data.songlist = json.data.song.list
       this.data.nomore = json.message 
+      console.log(json.data.song.totalnum)
+      if(json.data.song.totalnum < 20){
+        this.data.nomore = "no results"
+      }
+      console.log(this.data)
       return this.data.songlist
     })
     .then(songs=>  this.render(songs))
-    console.log(this.data)
+    .then(()=>this.done())
+    .catch(() => this.fetching = false)
+
+
+  }
+  done(){
+    this.fetching = false
+    if(this.data.nomore == 'no results'){//是否还有更多
+      this.$el.querySelector(".search-loading").classList.add("hide")
+      this.$el.querySelector(".search-nomore").classList.remove("hide")
+    }
     this.$el.querySelector(".search-history").classList.add("hide")
     this.$searchInfo.classList.remove("hide")
-
   }
   render(songs){
     let html = songs.map(song=>{
@@ -91,8 +116,10 @@ export default class search {
     }).join(" ")
     // this.$songlist.insertAdjacentHTML("beforeend",html)
     this.$songlist.innerHTML += html
-    
-
+  }
+  loading(){
+    this.fetching = true
+    this.$el.querySelector(".search-loading").classList.remove("hide")
   }
   updateHistory(keyword){
     let storage = window.localStorage
@@ -138,12 +165,11 @@ export default class search {
   bindAboutHistory(){
     let keywordBtns = this.$el.querySelectorAll(".history-keyword")
     keywordBtns.forEach((btn)=>{
-      btn.addEventListener("click",(e)=>{
-        console.log('keyword clicked')
-        console.log(e.target)
+      btn.addEventListener("click",(e)=>{ 
         this.reset()
         this.search(e.target.innerHTML , 1)
-
+        this.$input.value = e.target.innerHTML
+        this.$searchInfo.classList.remove("hide")
       })
     })
   }
