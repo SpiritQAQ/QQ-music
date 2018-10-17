@@ -41,7 +41,7 @@ export default class search {
     this.$cancel.addEventListener("click",()=>{
       this.$cancel.classList.add("hide")
       this.reset()
-      console.log(this.$input.value)
+      // console.log(this.$input.value)
       this.$input.value = ""
  
     }
@@ -77,16 +77,16 @@ export default class search {
     fetch(theSearchUrl)
     .then(res => res.json())
     .then(json => {
-      console.log(json)
+      // console.log(json)
       this.data.page = json.data.song.curpage
       this.data.keyword = json.data.keyword
       this.data.songlist = json.data.song.list
       this.data.nomore = json.message 
-      console.log(json.data.song.totalnum)
+      // console.log(json.data.song.totalnum)
       if(json.data.song.totalnum < 20){
         this.data.nomore = "no results"
       }
-      console.log(this.data)
+      // console.log(this.data)
       return this.data.songlist
     })
     .then(songs=>  this.render(songs))
@@ -181,7 +181,7 @@ export default class search {
     let historyCloseBtns = this.$el.querySelectorAll(".icon-close")
     historyCloseBtns.forEach((btn)=>{
       btn.addEventListener("click",(e)=>{
-        console.log(e.target.parentElement.querySelector(".history-keyword"))
+        // console.log(e.target.parentElement.querySelector(".history-keyword"))
         this.deleteHistory(e.target.parentElement.querySelector(".history-keyword").innerHTML)
         if(localStorage.history.length == 2){
           this.$el.querySelector(".clear-history").classList.add("hide")
