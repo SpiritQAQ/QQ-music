@@ -26,7 +26,7 @@
     left: 20px;
     width: 18px;
     height: 18px;
-    background-image: url(/images/search-icon.png);
+    background-image: url(../images/search-icon.png);
     background-repeat: no-repeat;
     background-size: cover;
     text-indent: -999px;
@@ -68,7 +68,7 @@
 
   }
   .icon-music{
-    background-image: url(/images/icon-music.png);
+    background-image: url(../images/icon-music.png);
     background-repeat: no-repeat;
     background-size: 22px 30px;
     position: absolute;
@@ -90,7 +90,7 @@
     height:18px;
     width:18px;
     top:4px;
-    background-image: url("/images/icon_loading.png");
+    background-image: url(../images/icon_loading.png);
     background-size: cover;
     animation:loading 1s infinite linear;
   }
@@ -117,7 +117,7 @@
       }
       .icon-clock{
         position: absolute;
-        background-image: url("/images/clock_ic.png");
+        background-image: url(../images/clock_ic.png);
         background-size: cover;
         height:20px;
         width: 20px;
