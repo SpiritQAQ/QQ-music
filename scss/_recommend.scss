@@ -9,6 +9,14 @@
   margin-left:10px;
   margin-top:5px;
   margin-right:1px;
+  .icon-play{
+    background-image: url(../images/list_sprite.png);
+    background-repeat: no-repeat;
+    background-size: 24px 60px;
+    position: absolute;
+    display: block;
+    z-index:5;
+  }
 }
 footer{
   margin:20px auto;
@@ -69,4 +77,5 @@ footer{
     overflow: hidden;
   }
 }
+
 

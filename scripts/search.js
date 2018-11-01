@@ -108,7 +108,7 @@ export default class search {
     let html = songs.map(song=>{
       let artist = song.singer.map(s => s.name).join(' ')
       return `
-      <a href="#player?artist=${artist}&songmid=${song.songmid}&albummid=${song.albummid}"
+      <a href="#player?artist=${artist}&songid=${song.songid}&songmid=${song.songmid}&songname=${song.songname}&albummid=${song.albummid}&duration=${song.interval}"
       class="song-item">
           <i class="icon-music"></i>
           <div class="song-title">${song.songname}</div>
